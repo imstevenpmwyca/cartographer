@@ -41,6 +41,9 @@ inline std::ostream& operator<<(std::ostream& out, const QueueKey& key) {
 OrderedMultiQueue::OrderedMultiQueue() {}
 
 OrderedMultiQueue::~OrderedMultiQueue() {
+
+  Flush();
+
   for (auto& entry : queues_) {
     CHECK(entry.second.finished);
   }
